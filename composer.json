@@ -1,0 +1,42 @@
+{
+  "name": "websecret/opening-hours-calculator",
+  "description": "Useful calculations based on opening hours",
+  "homepage": "https://github.com/websecret/opening-hours-calculator",
+  "keywords":
+  [
+    "websecret",
+    "opening hours",
+    "working time",
+    "php"
+  ],
+  "authors": [
+    {
+      "name": "Nikita Tolkachev",
+      "email": "n7olkachev@gmail.com",
+      "homepage": "https://n7olkachev.github.io",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php" : "^7.0",
+    "spatie/opening-hours": "^1.6",
+    "nesbot/carbon": "^1.32"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Websecret\\OpeningHoursCalculator\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Websecret\\OpeningHoursCalculator\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "license": "MIT"
+}
