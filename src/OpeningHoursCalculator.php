@@ -33,9 +33,10 @@ class OpeningHoursCalculator
      */
     public function workingDaysBetween(Carbon $from, Carbon $to)
     {
+        $to = $to->copy()->startOfDay();
         $days = 1;
 
-        for ($current = $from->copy(); $current < $to; $current->addDay()) {
+        for ($current = $from->copy()->startOfDay(); $current < $to; $current->addDay()) {
             if (count($this->openingHours->forDate($current)) > 0) {
                 $days++;
             }

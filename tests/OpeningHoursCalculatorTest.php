@@ -15,6 +15,7 @@ class OpeningHoursCalculatorTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
+        Carbon::setTestNow(Carbon::create(2018, 7, 29, 17));
 
         $this->calculator = new OpeningHoursCalculator(OpeningHours::create([
             'monday'    => ['09:00-12:00', '13:00-18:00'],
@@ -38,7 +39,9 @@ class OpeningHoursCalculatorTest extends TestCase
         $tuesday   = $monday->copy()->addDay();
         $wednesday = $tuesday->copy()->addDay();
 
+
         $this->assertEquals(1, $this->calculator->workingDaysBetween($sunday, $monday));
+        $this->assertEquals(1, $this->calculator->workingDaysBetween($monday, $monday->copy()->addMinutes(15)));
         $this->assertEquals(2, $this->calculator->workingDaysBetween($monday, $tuesday));
         $this->assertEquals(3, $this->calculator->workingDaysBetween($monday, $wednesday));
     }
